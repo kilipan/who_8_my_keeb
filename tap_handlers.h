@@ -178,7 +178,7 @@ void handle_tap_R4(qk_tap_dance_state_t *state, void *user_data) {
 void handle_tap_LP(qk_tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
         case 1:
-            tap_code(KC_LPRN);
+            tap_code16(KC_LPRN);
             reset_tap_dance(state);
             break;
         case 2:
@@ -186,7 +186,7 @@ void handle_tap_LP(qk_tap_dance_state_t *state, void *user_data) {
             reset_tap_dance(state);
             break;
         case 3:
-            tap_code(KC_LCBR);
+            tap_code16(KC_LCBR);
             reset_tap_dance(state);
             break;
     }
@@ -194,7 +194,7 @@ void handle_tap_LP(qk_tap_dance_state_t *state, void *user_data) {
 void handle_tap_RP(qk_tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
         case 1:
-            tap_code(KC_RPRN);
+            tap_code16(KC_RPRN);
             reset_tap_dance(state);
             break;
         case 2:
@@ -202,7 +202,7 @@ void handle_tap_RP(qk_tap_dance_state_t *state, void *user_data) {
             reset_tap_dance(state);
             break;
         case 3:
-            tap_code(KC_RCBR);
+            tap_code16(KC_RCBR);
             reset_tap_dance(state);
             break;
     }
