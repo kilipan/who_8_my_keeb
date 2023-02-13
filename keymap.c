@@ -1,0 +1,81 @@
+#include QMK_KEYBOARD_H
+#include "tap_handlers.h"
+
+//// definitions
+enum layers {
+    _EIGHT,
+    _NUM,
+    _NAV,
+    _SYM,
+    _FUN
+};
+
+// FIXME: hold behaviors in tap-dances aren't entirely trivial, check solution
+// at some point...
+/*
+// LEFT HAND HOME ROW MODS
+#define MT_CTL_L MT(MOD_LCTL, TD(T_L4))
+#define MT_ALT_L MT(MOD_LALT, KC_R)
+#define MT_GUI_L MT(MOD_LGUI, KC_S)
+#define MT_SFT_L MT(MOD_LSFT, KC_T)
+// RIGHT HAND HOME ROW MODS
+#define MT_SFT_R MT(MOD_RSFT, KC_N)
+#define MT_GUI_R MT(MOD_RGUI, KC_E)
+#define MT_ALT_R MT(MOD_LALT, KC_I)
+#define MT_CTL_R MT(MOD_RCTL, KC_O)
+// */
+// LAYER TAP BEHAVIORS
+#define NUM_ESC LT(_NUM, KC_ESC)
+#define NAV_SPC LT(_NAV, KC_SPC)
+#define SYM_ENT LT(_SYM, KC_ENT)
+#define FUN_BSP LT(_FUN, KC_BSPC)
+
+// combos
+enum combo_events {
+    CAPSWORD_COMBO,
+    COMBO_LENGTH
+};
+uint16_t COMBO_LEN = COMBO_LENGTH;
+const uint16_t PROGMEM capsword_combo[] = {LT(_EIGHT, TD(T_L1)), LT(_EIGHT, TD(T_R1)), COMBO_END};
+combo_t key_combos[] = {
+    [CAPSWORD_COMBO] = COMBO(capsword_combo, CW_TOGG),
+};
+
+// keymap
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+
+    [_EIGHT] = LAYOUT_split_3x5_3(
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        TD(T_L4), TD(T_L3), TD(T_L2), TD(T_L1), XXXXXXX, XXXXXXX, TD(T_R1), TD(T_R2), TD(T_R3), TD(T_R4), 
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                          XXXXXXX, NUM_ESC, NAV_SPC, SYM_ENT, FUN_BSP, XXXXXXX
+    ),
+
+    [_NUM] = LAYOUT_split_3x5_3(
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_0,    KC_1,    KC_2,    KC_3,    XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,    KC_7, 
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                          XXXXXXX, _______, XXXXXXX, KC_8,    KC_9,    XXXXXXX
+    ),
+
+    [_NAV] = LAYOUT_split_3x5_3(
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_HOME, KC_DEL,  KC_TAB,  KC_END,  XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                          XXXXXXX, XXXXXXX, _______, KC_PGDN, KC_PGUP, XXXXXXX
+    ),
+
+    [_SYM] = LAYOUT_split_3x5_3(
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  XXXXXXX, XXXXXXX, KC_AMPR, KC_ASTR, KC_PERC, KC_CIRC,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                          XXXXXXX, _______, XXXXXXX, TD(T_LP),TD(T_RP),XXXXXXX
+    ),
+
+    [_FUN] = LAYOUT_split_3x5_3(
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX, XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                          XXXXXXX, QK_BOOT, XXXXXXX, QK_BOOT, _______, XXXXXXX
+    )
+};
