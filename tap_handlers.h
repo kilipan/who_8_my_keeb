@@ -45,6 +45,7 @@ void handle_tap_L1(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 void reset_L1(qk_tap_dance_state_t *state, void *user_data) {
+    // unregister_code(KC_LSFT);
     if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
         unregister_code(KC_LSFT);
     }
@@ -76,6 +77,7 @@ void handle_tap_L2(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 void reset_L2(qk_tap_dance_state_t *state, void *user_data) {
+    // unregister_code(KC_LGUI);
     if ((get_mods() & MOD_BIT(KC_LGUI)) == MOD_BIT(KC_LGUI)) {
         unregister_code(KC_LGUI);
     }
@@ -109,6 +111,7 @@ void handle_tap_L3(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 void reset_L3(qk_tap_dance_state_t *state, void *user_data) {
+    // unregister_code(KC_LALT);
     if ((get_mods() & MOD_BIT(KC_LALT)) == MOD_BIT(KC_LALT)) {
         unregister_code(KC_LALT);
     }
@@ -136,6 +139,7 @@ void handle_tap_L4(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 void reset_L4(qk_tap_dance_state_t *state, void *user_data) {
+    // unregister_code(KC_LCTL);
     if ((get_mods() & MOD_BIT(KC_LCTL)) == MOD_BIT(KC_LCTL)) {
         unregister_code(KC_LCTL);
     }
@@ -170,8 +174,9 @@ void handle_tap_R1(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 void reset_R1(qk_tap_dance_state_t *state, void *user_data) {
-    if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
-        unregister_code(KC_LSFT);
+    // unregister_code(KC_RSFT);
+    if ((get_mods() & MOD_BIT(KC_RSFT)) == MOD_BIT(KC_RSFT)) {
+        unregister_code(KC_RSFT);
     }
 }
 
@@ -201,15 +206,16 @@ void handle_tap_R2(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 void reset_R2(qk_tap_dance_state_t *state, void *user_data) {
-    if ((get_mods() & MOD_BIT(KC_LGUI)) == MOD_BIT(KC_LGUI)) {
-        unregister_code(KC_LGUI);
+    // unregister_code(KC_RGUI);
+    if ((get_mods() & MOD_BIT(KC_RGUI)) == MOD_BIT(KC_RGUI)) {
+        unregister_code(KC_RGUI);
     }
 }
 
 // right ring finger
 void handle_tap_R3(qk_tap_dance_state_t *state, void *user_data) {
     if (state->pressed) {
-        register_code(KC_LALT);
+        register_code(KC_RALT);
         return;
     }
     switch (state->count) {
@@ -234,8 +240,9 @@ void handle_tap_R3(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 void reset_R3(qk_tap_dance_state_t *state, void *user_data) {
-    if ((get_mods() & MOD_BIT(KC_LALT)) == MOD_BIT(KC_LALT)) {
-        unregister_code(KC_LALT);
+    // unregister_code(KC_RALT);
+    if ((get_mods() & MOD_BIT(KC_RALT)) == MOD_BIT(KC_RALT)) {
+        unregister_code(KC_RALT);
     }
 }
 
@@ -261,8 +268,9 @@ void handle_tap_R4(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 void reset_R4(qk_tap_dance_state_t *state, void *user_data) {
-    if ((get_mods() & MOD_BIT(KC_LCTL)) == MOD_BIT(KC_LCTL)) {
-        unregister_code(KC_LCTL);
+    // unregister_code(KC_RCTL);
+    if ((get_mods() & MOD_BIT(KC_RCTL)) == MOD_BIT(KC_RCTL)) {
+        unregister_code(KC_RCTL);
     }
 }
 
