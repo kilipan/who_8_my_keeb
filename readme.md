@@ -25,7 +25,7 @@ hold    CTL  ALT  GUI  SFT    SFT  GUI  ALT  CTL    NUM  NAV  SYM  FUN
 
 Thumbs:
 All thumbs have layer tap behavior.
-All non-default layers retain the homerow mods.
+(Not yet implemented: All non-default layers retain the homerow mods.)
 
 - T1: ESC / number layer
 ```
