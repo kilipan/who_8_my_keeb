@@ -13,6 +13,10 @@ enum {
     T_R4,
     T_LP,
     T_RP,
+    T_F1,
+    T_F2,
+    T_F3,
+    T_F4,
 };
 
 
@@ -321,6 +325,10 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [T_R4] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, handle_tap_R4, reset_R4),
     [T_LP] = ACTION_TAP_DANCE_FN(handle_tap_LP),
     [T_RP] = ACTION_TAP_DANCE_FN(handle_tap_RP),
+    [T_F1] = ACTION_TAP_DANCE_DOUBLE(KC_F1, KC_F9),
+    [T_F2] = ACTION_TAP_DANCE_DOUBLE(KC_F2, KC_F10),
+    [T_F3] = ACTION_TAP_DANCE_DOUBLE(KC_F3, KC_F11),
+    [T_F4] = ACTION_TAP_DANCE_DOUBLE(KC_F4, KC_F12),
 };
 #endif//TAP_HANDLERS
 

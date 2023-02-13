@@ -10,20 +10,6 @@ enum layers {
     _FUN
 };
 
-// FIXME: hold behaviors in tap-dances aren't entirely trivial, check solution
-// at some point...
-/*
-// LEFT HAND HOME ROW MODS
-#define MT_CTL_L MT(MOD_LCTL, TD(T_L4))
-#define MT_ALT_L MT(MOD_LALT, KC_R)
-#define MT_GUI_L MT(MOD_LGUI, KC_S)
-#define MT_SFT_L MT(MOD_LSFT, KC_T)
-// RIGHT HAND HOME ROW MODS
-#define MT_SFT_R MT(MOD_RSFT, KC_N)
-#define MT_GUI_R MT(MOD_RGUI, KC_E)
-#define MT_ALT_R MT(MOD_LALT, KC_I)
-#define MT_CTL_R MT(MOD_RCTL, KC_O)
-// */
 // LAYER TAP BEHAVIORS
 #define NUM_ESC LT(_NUM, KC_ESC)
 #define NAV_SPC LT(_NAV, KC_SPC)
@@ -74,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_FUN] = LAYOUT_split_3x5_3(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX, XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,
+        TD(T_F1),TD(T_F2),TD(T_F3),TD(T_F4),XXXXXXX, XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                           XXXXXXX, QK_BOOT, XXXXXXX, XXXXXXX, _______, XXXXXXX
     )

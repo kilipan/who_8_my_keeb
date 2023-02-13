@@ -1,6 +1,8 @@
 # Who 8 My Keeb?
 A keymap for a 1x4+2 split keyboard (12 keys total) that relies on tap dancing to get the letters you want (very similar to how T9 used to work on old phones).
 
+(Currently implemented via a 5x3+3 layout with most keys "turned off".)
+
 ```
 layout:
   [L4] [L3] [L2] [L1]             [R1] [R2] [R3] [R4]
@@ -50,5 +52,5 @@ All non-default layers retain the homerow mods.
  #t\key  L4   L3   L2   L1     R1   R2   R3   R4     T1   T2   T3   T4
 ------------------------------------------------------------------------
 1 tap    F1   F2   F3   F4     F5   F6   F7   F8   BOOT
-2 taps   F9  F10  F11  F12    F13  F14  F15  F16
+2 taps   F9  F10  F11  F12
 ```
