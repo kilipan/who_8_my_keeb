@@ -15,7 +15,14 @@ enum {
     T_RP,
 };
 
+
+//// LEFT HAND
+// left index finger
 void handle_tap_L1(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->pressed) {
+        register_code(KC_LSFT);
+        return;
+    }
     switch (state->count) {
         case 1:
             tap_code(KC_T);
@@ -37,7 +44,18 @@ void handle_tap_L1(qk_tap_dance_state_t *state, void *user_data) {
             break;
     }
 }
+void reset_L1(qk_tap_dance_state_t *state, void *user_data) {
+    if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
+        unregister_code(KC_LSFT);
+    }
+}
+
+// left middle finger
 void handle_tap_L2(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->pressed) {
+        register_code(KC_LGUI);
+        return;
+    }
     switch (state->count) {
         case 1:
             tap_code(KC_N);
@@ -57,7 +75,18 @@ void handle_tap_L2(qk_tap_dance_state_t *state, void *user_data) {
             break;
     }
 }
+void reset_L2(qk_tap_dance_state_t *state, void *user_data) {
+    if ((get_mods() & MOD_BIT(KC_LGUI)) == MOD_BIT(KC_LGUI)) {
+        unregister_code(KC_LGUI);
+    }
+}
+
+// left ring finger
 void handle_tap_L3(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->pressed) {
+        register_code(KC_LALT);
+        return;
+    }
     switch (state->count) {
         case 1:
             tap_code(KC_H);
@@ -79,7 +108,18 @@ void handle_tap_L3(qk_tap_dance_state_t *state, void *user_data) {
             break;
     }
 }
+void reset_L3(qk_tap_dance_state_t *state, void *user_data) {
+    if ((get_mods() & MOD_BIT(KC_LALT)) == MOD_BIT(KC_LALT)) {
+        unregister_code(KC_LALT);
+    }
+}
+
+// left pinky
 void handle_tap_L4(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->pressed) {
+        register_code(KC_LCTL);
+        return;
+    }
     switch (state->count) {
         case 1:
             tap_code(KC_S);
@@ -95,7 +135,19 @@ void handle_tap_L4(qk_tap_dance_state_t *state, void *user_data) {
             break;
     }
 }
+void reset_L4(qk_tap_dance_state_t *state, void *user_data) {
+    if ((get_mods() & MOD_BIT(KC_LCTL)) == MOD_BIT(KC_LCTL)) {
+        unregister_code(KC_LCTL);
+    }
+}
+
+//// RIGHT HAND
+// right index finger
 void handle_tap_R1(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->pressed) {
+        register_code(KC_RSFT);
+        return;
+    }
     switch (state->count) {
         case 1:
             tap_code(KC_A);
@@ -117,7 +169,18 @@ void handle_tap_R1(qk_tap_dance_state_t *state, void *user_data) {
             break;
     }
 }
+void reset_R1(qk_tap_dance_state_t *state, void *user_data) {
+    if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
+        unregister_code(KC_LSFT);
+    }
+}
+
+// right middle finger
 void handle_tap_R2(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->pressed) {
+        register_code(KC_RGUI);
+        return;
+    }
     switch (state->count) {
         case 1:
             tap_code(KC_E);
@@ -137,7 +200,18 @@ void handle_tap_R2(qk_tap_dance_state_t *state, void *user_data) {
             break;
     }
 }
+void reset_R2(qk_tap_dance_state_t *state, void *user_data) {
+    if ((get_mods() & MOD_BIT(KC_LGUI)) == MOD_BIT(KC_LGUI)) {
+        unregister_code(KC_LGUI);
+    }
+}
+
+// right ring finger
 void handle_tap_R3(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->pressed) {
+        register_code(KC_LALT);
+        return;
+    }
     switch (state->count) {
         case 1:
             tap_code(KC_I);
@@ -159,7 +233,18 @@ void handle_tap_R3(qk_tap_dance_state_t *state, void *user_data) {
             break;
     }
 }
+void reset_R3(qk_tap_dance_state_t *state, void *user_data) {
+    if ((get_mods() & MOD_BIT(KC_LALT)) == MOD_BIT(KC_LALT)) {
+        unregister_code(KC_LALT);
+    }
+}
+
+// right pinky
 void handle_tap_R4(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->pressed) {
+        register_code(KC_RCTL);
+        return;
+    }
     switch (state->count) {
         case 1:
             tap_code(KC_O);
@@ -175,6 +260,13 @@ void handle_tap_R4(qk_tap_dance_state_t *state, void *user_data) {
             break;
     }
 }
+void reset_R4(qk_tap_dance_state_t *state, void *user_data) {
+    if ((get_mods() & MOD_BIT(KC_LCTL)) == MOD_BIT(KC_LCTL)) {
+        unregister_code(KC_LCTL);
+    }
+}
+
+//// parentheses on symbol layer
 void handle_tap_LP(qk_tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
         case 1:
@@ -208,16 +300,27 @@ void handle_tap_RP(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
+
+// tap dance actions
 qk_tap_dance_action_t tap_dance_actions[] = {
-    [T_L1] = ACTION_TAP_DANCE_FN(handle_tap_L1),
-    [T_L2] = ACTION_TAP_DANCE_FN(handle_tap_L2),
-    [T_L3] = ACTION_TAP_DANCE_FN(handle_tap_L3),
-    [T_L4] = ACTION_TAP_DANCE_FN(handle_tap_L4),
-    [T_R1] = ACTION_TAP_DANCE_FN(handle_tap_R1),
-    [T_R2] = ACTION_TAP_DANCE_FN(handle_tap_R2),
-    [T_R3] = ACTION_TAP_DANCE_FN(handle_tap_R3),
-    [T_R4] = ACTION_TAP_DANCE_FN(handle_tap_R4),
+    [T_L1] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, handle_tap_L1, reset_L1),
+    [T_L2] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, handle_tap_L2, reset_L2),
+    [T_L3] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, handle_tap_L3, reset_L3),
+    [T_L4] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, handle_tap_L4, reset_L4),
+    [T_R1] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, handle_tap_R1, reset_R1),
+    [T_R2] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, handle_tap_R2, reset_R2),
+    [T_R3] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, handle_tap_R3, reset_R3),
+    [T_R4] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, handle_tap_R4, reset_R4),
     [T_LP] = ACTION_TAP_DANCE_FN(handle_tap_LP),
     [T_RP] = ACTION_TAP_DANCE_FN(handle_tap_RP),
 };
 #endif//TAP_HANDLERS
+
+/*
+on_end:
+    if (pressed) {// register GUI and return}
+    switch (count) { // your logic }
+
+on_reset:
+    // unregister GUI
+// */
